@@ -17,6 +17,13 @@ public class ExcelDataProvider {
     public static XSSFSheet worksheet;
     public static DataFormatter formatter = new DataFormatter();
 
+    /**
+     * This method return the Excel file Data
+     * @param filePath
+     * @param sheet
+     * @return
+     * @throws IOException
+     */
     public Object[][] excelDataProvider(String filePath, String sheet) throws IOException {
         File file = new File(filePath);
         FileInputStream fileInputStream = new FileInputStream(file);
@@ -46,6 +53,14 @@ public class ExcelDataProvider {
         return Data;
     }
 
+    /**
+     * This Method write the data in Excel file
+     * @param filePath
+     * @param sheetName
+     * @param data
+     * @param column
+     * @throws IOException
+     */
     public void writeExcel(String filePath, String sheetName, String data, int column) throws IOException {
 
         File file =    new File(filePath);
@@ -67,9 +82,6 @@ public class ExcelDataProvider {
         FileOutputStream outputStream = new FileOutputStream(file);
         workbook.write(outputStream);
         outputStream.close();
-
-
-
 
     }
 }
